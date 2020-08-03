@@ -3,6 +3,8 @@ services:
     jenkins:
         image: jenkinsci/blueocean
         restart: always
+        command: ["/bin/sh"]
+        args: ["-c", "usermod -aG docker $USER"]
         ports:
             - 8080:8080
         volumes:
